@@ -2,6 +2,7 @@ tqdm
 numpy
 pandas
 sklearn
+fbprophet
 tensorflow
 matplotlib
 seaborn
