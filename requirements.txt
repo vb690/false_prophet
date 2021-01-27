@@ -2,6 +2,6 @@ tqdm
 numpy
 pandas
 sklearn
-tensorflow-gpu
+tensorflow
 matplotlib
 seaborn
