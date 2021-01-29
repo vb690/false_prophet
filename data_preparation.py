@@ -13,10 +13,15 @@ for csv_file in os.listdir('data\\csv\\'):
     )
     df = df.dropna(axis=1)
 
-    arrays, remapper = generate_data(
+    arrays, remappers = generate_data(
         df=df,
         date_column='ds',
         value_column='y'
+    )
+
+    save_obj(
+        obj=remappers,
+        path=f'results\\saved_obj\\{csv_file[:-4]}_rmp'
     )
 
     splitted_arrays = split_data(

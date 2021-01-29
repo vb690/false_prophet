@@ -149,36 +149,35 @@ class _AbstractEstimator:
         setattr(self, 'fitting_time', end - start)
         return history
 
-    def predict(self, X_ts, **kwargs):
+    def predict(self, X, **kwargs):
         """
         """
-        t_steps = X_ts[0].shape[0]
+        t_steps = X[1].shape[0]
         predictions = []
         for t in range(t_steps):
-
             if t == 0:
-                X = [
-                    X_ts[0][t, :, :].reshape(1, 1, 1),
-                    X_ts[1][t, :],
-                    X_ts[2][t, :],
-                    X_ts[3][t, :]
+                X_in = [
+                    X[0],
+                    X[1][t, :],
+                    X[2][t, :],
+                    X[3][t, :]
 
                 ]
             else:
-                X = [
+                X_in = [
                     np.array([predictions[t-1]]).reshape(1, 1, 1),
-                    X_ts[1][t, :],
-                    X_ts[2][t, :],
-                    X_ts[3][t, :]
+                    X[1][t, :],
+                    X[2][t, :],
+                    X[3][t, :]
 
                 ]
             predictions.append(
-                self._model.predict(X, batch_size=1).flatten()[0]
+                self._model.predict(X_in, batch_size=1).flatten()[0]
             )
 
         return np.array(predictions)
 
-    def predict_with_uncertainty(self, X_ts, n_boot=100, **kwargs):
+    def predict_with_uncertainty(self, X, n_boot=1, **kwargs):
         """
         """
         if not self.prob:
@@ -190,7 +189,7 @@ class _AbstractEstimator:
 
                 predictions.append(
                     self.predict(
-                        X_ts=X_ts
+                        X=X
                     )
                 )
 
@@ -212,8 +211,8 @@ class _AbstractEstimator:
 
 
 def save_full_model(model):
-    '''
-    '''
+    """
+    """
     name = model.get_model_tag()
     path = f'results\\saved_training_models\\{name}'
     generate_dir(path)
@@ -229,8 +228,8 @@ def save_full_model(model):
 
 
 def load_full_model(name, custom_objects=None, **compile_schema):
-    '''
-    '''
+    """
+    """
     path = f'results\\saved_training_models\\{name}'
 
     keras_model = load_model(

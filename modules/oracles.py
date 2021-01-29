@@ -9,7 +9,7 @@ from .utils.models_utils import _AbstractEstimator
 class FalseProphet(_AbstractEstimator):
     """
     """
-    def __init__(self, X, prob=True, model_tag=None, batch_size=256,
+    def __init__(self, X_shape, prob=True, model_tag=None, batch_size=256,
                  dropout=0.1):
         """
         """
@@ -18,7 +18,7 @@ class FalseProphet(_AbstractEstimator):
         else:
             self.model_tag = model_tag
         self.prob = prob
-        self.X = X.shape
+        self.X = X_shape
         self.batch_size = batch_size
 
     def build(self, compile_schema=None):

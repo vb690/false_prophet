@@ -2,8 +2,6 @@ import numpy as np
 
 import pandas as pd
 
-from sklearn.preprocessing import MinMaxScaler as mms
-
 from .general_utils import find_factors
 
 
@@ -66,9 +64,6 @@ def generate_data(df, date_column, value_column):
     df = df.sort_values(date_column)
 
     df[value_column] = df[value_column].astype('float32')
-    df['transformed'] = mms().fit_transform(
-        df[value_column].values.reshape(-1, 1)
-    )
 
     df['month'] = pd.DatetimeIndex(df[date_column]).month
     df['month'] = df['month'].shift(-1)
@@ -79,7 +74,7 @@ def generate_data(df, date_column, value_column):
     df['day_month'] = pd.DatetimeIndex(df[date_column]).day
     df['day_month'] = df['day_month'].shift(-1)
 
-    df['target'] = df['transformed'].shift(-1)
+    df['target'] = df[value_column].shift(-1)
 
     remappers = generate_remappers(
         df=df,
@@ -93,7 +88,7 @@ def generate_data(df, date_column, value_column):
     arrays = generate_arrays(
         df=df,
         columns=[
-            'transformed',
+            'y',
             'month',
             'day_week',
             'day_month',
