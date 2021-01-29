@@ -11,6 +11,15 @@
 # Features
 
 # How to use
+## False Prophet Architecture
+<p align="center">
+  <img width="900" height="400" src="https://github.com/vb690/false_prophet/blob/main/figures/false_prophet_architecture.svg">
+<p align="center">
+  
+## Data Preparation
+## False Prophet Training
+## Models Comparison
+
 
 # Performance Comparison
 
