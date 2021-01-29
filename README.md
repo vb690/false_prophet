@@ -38,3 +38,15 @@
 <p align="center">
   <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/False%20Prophet_female_birth_performance.svg">
 <p align="center">
+  
+## Daily CO2
+
+### Prophet
+<p align="center">
+  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/Prophet_co2_daily_performance.svg">
+<p align="center">
+  
+### False Prophet
+<p align="center">
+  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/False%20Prophet_co2_daily_performance.svg">
+<p align="center">
