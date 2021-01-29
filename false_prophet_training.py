@@ -9,7 +9,7 @@ from modules.utils.general_utils import save_obj, load_obj
 
 ###############################################################################
 
-for data_source in ['female_birth', 'peyton_manning']:
+for data_source in ['female_birth', 'peyton_manning', 'co2_daily']:
 
     splitted_arrays = load_obj(
         path=f'data\\arrays\\{data_source}'

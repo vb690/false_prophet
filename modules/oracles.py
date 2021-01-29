@@ -27,11 +27,11 @@ class FalseProphet(_AbstractEstimator):
         # COMPILE SCHEMA
         if compile_schema is None:
             compile_schema = {
-                'month': 30,
-                'day_week': 30,
-                'day_month': 30,
-                'env_layers': (100, 70,  50),
-                'recurrent_layers': (50,),
+                'month': 20,
+                'day_week': 20,
+                'day_month': 20,
+                'env_layers': (50,  25),
+                'recurrent_layers': (100,),
                 'regressor_layers': (50, 25),
                 'dropout': 0.2,
                 'activation': 'relu',
