@@ -12,14 +12,17 @@
 
 # How to use
 
-# Perfromance Comparison
+# Performance Comparison
 
-## Prophet
+## Peyton-Manning
+
+### Prophet
+
 <p align="center">
   <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/prophet_performance.svg">
 <p align="center">
   
-## False Prophet
+### False Prophet
 <p align="center">
   <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/false_prophet_perfromance.svg">
 <p align="center">
