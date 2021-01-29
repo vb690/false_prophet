@@ -19,10 +19,22 @@
 ### Prophet
 
 <p align="center">
-  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/prophet_performance.svg">
+  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/Prophet_peyton_manning_performance.svg">
 <p align="center">
   
 ### False Prophet
 <p align="center">
-  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/false_prophet_perfromance.svg">
+  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/False%20Prophet_peyton_manning_performance.svg">
+<p align="center">
+  
+## Female Birth
+
+### Prophet
+<p align="center">
+  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/Prophet_female_birth_performance.svg">
+<p align="center">
+  
+### False Prophet
+<p align="center">
+  <img width="900" height="300" src="https://github.com/vb690/false_prophet/blob/main/results/plots/performance/False%20Prophet_female_birth_performance.svg">
 <p align="center">
