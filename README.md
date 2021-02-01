@@ -60,7 +60,7 @@ history = model.fit(
     callbacks=[ES]
 )
 ```
-False prophet uses [Monte Carlo drop-out for producing an approximated posterior distribution](https://arxiv.org/abs/1506.02142). For obtaining uncertainty in the model estimates we have to call the `predict_with_uncertainty` method specifying the number of samples that we want to draw from the posterior through the `n_boot` argument.
+False Prophet uses [Monte Carlo drop-out for producing an approximated posterior distribution](https://arxiv.org/abs/1506.02142). For obtaining uncertainty in the model estimates we have to call the `predict_with_uncertainty` method specifying the number of samples that we want to draw from the posterior through the `n_boot` argument.
 ```python
 predictions = model.predict_with_uncertainty(
     X_ts,
