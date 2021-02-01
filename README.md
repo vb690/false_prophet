@@ -64,7 +64,7 @@ history = model.fit(
 ```python
 predictions = model.predict_with_uncertainty(
     X_ts,
-    n_boot=300,
+    n_boot=50,
     batch_size=1
 )
 
