@@ -8,15 +8,19 @@
 
 # Motivation
 
+Comparing the perfromance of [Facebook's Prophet](https://facebook.github.io/prophet/) with that of an Artificial Neural Network using recurrent operations.
 
 # Features
+
+UP NEXT
 
 # How to use
 ## False Prophet
 <p align="center">
   <img width="900" height="400" src="https://github.com/vb690/false_prophet/blob/main/figures/false_prophet_architecture.svg">
 <p align="center">
-
+  
+False Prohet is nothing more than a Neural Network employing statefull recurrent layers (LSTMs here) for modelling temporality. For instatiating the model we need to pass a `compile_schema` specifying hyperparamenters for various portions of the model.
 ```python
 from tensorflow.keras.callbacks import EarlyStopping
 from modules.oracles import FalseProphet
@@ -40,7 +44,7 @@ model = FalseProphet(
 )
 model.build(compile_schema=compile_schema)
 ```
-
+False Prophet wraps the conventional Keras `fit` and `predict` methods giving us the freedom to use callbacks like `EarlyStopping` during training.
 ```python
 ES = EarlyStopping(
     monitor='val_loss',
@@ -74,12 +78,15 @@ lower_prediction = np.percentile(predictions, 2.5, axis=1)
 ```
   
 ## Data Preparation
+UP NEXT
 ## False Prophet Training
+UP NEXT
 ## Models Comparison
-
+UP NEXT
 
 # Performance Comparison
-
+Values before the vertical dotted line indicate out-of-sample estimates for which we have a ground truth while we do not possess a ground truth for values after the dotted line.
+Each model oprates on a rolling-prediction basis: given a sequence of timestaps and the ground truth at `t-1` the models will produce an estimate for time `t` which will then be used as an input for producing a prediction at time `t2`. 
 ## Peyton-Manning
 
 ### Prophet
