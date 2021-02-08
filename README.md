@@ -86,7 +86,7 @@ UP NEXT
 
 # Performance Comparison
 Values before the vertical dotted line indicate out-of-sample estimates for which we have a ground truth while we do not possess a ground truth for values after the dotted line.
-Each model oprates on a rolling-prediction basis: given a sequence of timestaps and the ground truth at `t-1` the models will produce an estimate for time `t` which will then be used as an input for producing a prediction at time `t2`. 
+Each model oprates on a rolling-prediction basis: given a sequence of timestaps and the ground truth at `t-1` the models will produce an estimate for time `t` which will then be used as an input for producing a prediction at time `t+1`. 
 ## Peyton-Manning
 
 ### Prophet
