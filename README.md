@@ -40,7 +40,7 @@ compile_schema = {
 model = FalseProphet(
     X_shape=(None, 10, 1),
     batch_size=1,
-    model_tag=data_source
+    model_tag='test_model'
 )
 model.build(compile_schema=compile_schema)
 ```
