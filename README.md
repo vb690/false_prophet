@@ -20,7 +20,7 @@ UP NEXT
   <img width="900" height="400" src="https://github.com/vb690/false_prophet/blob/main/figures/false_prophet_architecture.svg">
 <p align="center">
   
-False Prohet is nothing more than a Neural Network employing statefull recurrent layers (LSTMs here) for modelling temporality. For instatiating the model we need to pass a `compile_schema` specifying hyperparamenters for various portions of the model.
+False Prohet is nothing more than an Artificial Neural Network employing statefull recurrent layers (LSTMs here) for modelling temporality. For instatiating the model we need to pass a `compile_schema` specifying hyperparamenters for various portions of the model.
 ```python
 from tensorflow.keras.callbacks import EarlyStopping
 from modules.oracles import FalseProphet
