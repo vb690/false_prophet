@@ -8,11 +8,16 @@
 
 # Motivation
 
-Comparing the perfromance of [Facebook's Prophet](https://facebook.github.io/prophet/) with that of an Artificial Neural Network using recurrent operations.
+This repository aim to ompare the perfromance of [Facebook's Prophet](https://facebook.github.io/prophet/) with that of an Artificial Neural Network using recurrent operations (RNN). We already expect the RNN to perfrorm worse both in terms of accuracy and training time.  
+  
+However, there is value in seeing where and how it fails.
 
 # Features
 
-UP NEXT
+* False Prophet: a recurrent neural network based forecaster with seasonality and probabilitic output.
+* Data preparation pipeline.
+* False Prophet training pipeline.
+* Models comparison pipeline.
 
 # How to use
 ## False Prophet
@@ -78,7 +83,16 @@ lower_prediction = np.percentile(predictions, 2.5, axis=1)
 ```
   
 ## Data Preparation
-UP NEXT
+Place `.csv` files on which you to perfrom the comparison in `'data\\csv\\'`. The files need to have the following format  
+
+| ds         | y  |
+|------------|----|
+| yyyy-dd-mm | 10 |
+| yyyy-dd-mm | 11 |
+| yyyy-dd-mm | 3  |
+
+The data preparation pipeline will then iterate over all the files in `'data\\csv\\'` and preprocess them in a format suitable for trainining False Prophet. Date will be decomposed in month, day of the week, day of the month and ordinal coded. The target will be turned into a format suitable for RNN training and saved locally in a  `.npy ` file.
+
 ## False Prophet Training
 UP NEXT
 ## Models Comparison
