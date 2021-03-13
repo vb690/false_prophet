@@ -6,6 +6,8 @@
    <b> Matthew 7:15 </b></i> 
 </p>
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Motivation
 
 This repository aim to ompare the perfromance of [Facebook's Prophet](https://facebook.github.io/prophet/) with that of an Artificial Neural Network using recurrent operations (RNN). We already expect the RNN to perfrorm worse both in terms of accuracy and training time.  
