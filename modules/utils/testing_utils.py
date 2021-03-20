@@ -74,17 +74,17 @@ def test_models(datasets, periods=None, figsize=(15, 5), n_boot=30):
             look_ahead = periods
 
         df = pd.read_csv(
-            f'data\\csv\\{dataset_name}.csv'
+            f'data//csv//{dataset_name}.csv'
         )
 
         df_tr = df[:-cut_point]
 
         y = df['y'].values[-cut_point:]
         remappers = load_obj(
-            path=f'results\\saved_obj\\{dataset_name}_rmp'
+            path=f'results//saved_obj//{dataset_name}_rmp'
         )
         rescaler = load_obj(
-            path=f'results\\saved_obj\\{dataset_name}_rsc'
+            path=f'results//saved_obj//{dataset_name}_rsc'
         )
 
         # ######################### PROPHET ###################################

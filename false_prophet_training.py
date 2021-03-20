@@ -12,7 +12,7 @@ from modules.utils.general_utils import save_obj, load_obj
 for data_source in ['female_birth', 'peyton_manning', 'co2_daily']:
 
     splitted_arrays = load_obj(
-        path=f'data\\arrays\\{data_source}'
+        path=f'data//arrays//{data_source}'
     )
     scaler = mms()
     splitted_arrays = splitted_arrays['train']
@@ -29,7 +29,7 @@ for data_source in ['female_birth', 'peyton_manning', 'co2_daily']:
 
     save_obj(
         obj=scaler,
-        path=f'results\\saved_obj\\{data_source}_rsc'
+        path=f'results//saved_obj//{data_source}_rsc'
     )
 
     val_point = int(splitted_arrays['y'].shape[0] * 0.2)

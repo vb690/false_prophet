@@ -41,7 +41,7 @@ def plot_performance(y, mean_prediction, upper_prediction, lower_prediction,
     plt.xlabel('Time')
     plt.legend()
     plt.savefig(
-        f'results\\plots\\performance\\{model}_{dataset_name}_performance.svg'
+        f'results//plots//performance//{model}_{dataset_name}_performance.svg'
     )
     plt.show()
     return None

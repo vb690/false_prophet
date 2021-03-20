@@ -5,10 +5,10 @@ import pandas as pd
 from modules.utils.data_utils import generate_data, split_data
 from modules.utils.general_utils import save_obj
 
-for csv_file in os.listdir('data\\csv\\'):
+for csv_file in os.listdir('data//csv//'):
 
     df = pd.read_csv(
-        f'data\\csv\\{csv_file}',
+        f'data//csv//{csv_file}',
         sep=None
     )
     df = df.dropna(axis=1)
@@ -21,7 +21,7 @@ for csv_file in os.listdir('data\\csv\\'):
 
     save_obj(
         obj=remappers,
-        path=f'results\\saved_obj\\{csv_file[:-4]}_rmp'
+        path=f'results//saved_obj//{csv_file[:-4]}_rmp'
     )
 
     splitted_arrays = split_data(
@@ -31,5 +31,5 @@ for csv_file in os.listdir('data\\csv\\'):
 
     save_obj(
         obj=splitted_arrays,
-        path=f'data\\arrays\\{csv_file[:-4]}'
+        path=f'data//arrays//{csv_file[:-4]}'
     )

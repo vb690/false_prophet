@@ -199,14 +199,14 @@ class _AbstractEstimator:
         """
         """
         name = self.model_tag
-        self._model.save_weights(f'results\\saved_training_weights\\{name}.h5')
+        self._model.save_weights(f'results//saved_training_weights//{name}.h5')
         return None
 
     def load_weights(self):
         """
         """
         name = self.model_tag
-        self._model.load_weights(f'results\\saved_training_weights\\{name}.h5')
+        self._model.load_weights(f'results//saved_training_weights//{name}.h5')
         return None
 
 
@@ -214,33 +214,33 @@ def save_full_model(model):
     """
     """
     name = model.get_model_tag()
-    path = f'results\\saved_training_models\\{name}'
+    path = f'results//saved_training_models//{name}'
     generate_dir(path)
 
     keras_model = model.get_model()
     tf.saved_model.save(
         keras_model,
-        f'{path}\\engine\\'
+        f'{path}//engine//'
     )
 
-    with open(f'{path}\\scaffolding.pkl', 'wb') as output:
+    with open(f'{path}//scaffolding.pkl', 'wb') as output:
         pickle.dump(model, output, pickle.HIGHEST_PROTOCOL)
 
 
 def load_full_model(name, custom_objects=None, **compile_schema):
     """
     """
-    path = f'results\\saved_training_models\\{name}'
+    path = f'results//saved_training_models//{name}'
 
     keras_model = load_model(
-        f'{path}\\engine\\',
+        f'{path}//engine//',
         custom_objects=custom_objects,
         compile=False
     )
     keras_model.compile(
         **compile_schema
     )
-    with open(f'{path}\\scaffolding.pkl', 'rb') as input:
+    with open(f'{path}//scaffolding.pkl', 'rb') as input:
         model = pickle.load(input)
 
     try:
