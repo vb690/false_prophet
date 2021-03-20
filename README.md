@@ -11,9 +11,9 @@
 
 # Motivation
 
-This repository aim to ompare the perfromance of [Facebook's Prophet](https://facebook.github.io/prophet/) with that of an Artificial Neural Network using recurrent operations (RNN). We already expect the RNN to perfrorm worse both in terms of accuracy and training time.  
+This repository aims to ompare the perfromance of [Facebook's Prophet](https://facebook.github.io/prophet/) with that of an Artificial Neural Network using recurrent operations (RNN) in an "out of the box" setting. We already expect the RNN to perfrorm worse both in terms of estimates error and training time given that Prophet has been engineered to be accurate and fast even wehn minimal inputs from the end user are provided.
   
-However, there is value in seeing where and how it fails.
+However, there is value in seeing where and how the RNN fails given that ANNs have the potential to achieve bettter perfromance and generalizability if carefully tuned.
 
 # Features
 
@@ -94,13 +94,27 @@ Place `.csv` files on which you to perfrom the comparison in `'data\\csv\\'`. Th
 | yyyy-dd-mm | 11 |
 | yyyy-dd-mm | 3  |
 
-The data preparation pipeline will then iterate over all the files in `'data\\csv\\'` and preprocess them in a format suitable for trainining False Prophet. Date will be decomposed in month, day of the week, day of the month and ordinal coded. The target will be turned into a format suitable for RNN training and saved locally in a  `.npy ` file.
+The data preparation pipeline will then iterate over all the files in `'data\\csv\\'` and preprocess them in a format suitable for trainining False Prophet. Date will be decomposed in month, day of the week, day of the month and ordinal coded. The target will be rescaled and turned into a format suitable for RNN training.  
+  
+The script will save input features and target locally as `.npy` files in `'data\\arrays\\'` along with rescaler and ordinal encoder objects in `'results\\saved_obj\\'`.
 
 ## False Prophet Training
-UP NEXT
+The training pipeline will iterate over all the data sources in `'data\\arrays\\'`, train FalseProphet untill convergence is reached or untill no significant improvement is observed for 100 epochs. At this point the script will save the model weights locally as a `.h5` file in `'results\\saved_training_weights\\'`.
 ## Models Comparison
-UP NEXT
+Once FalseProphept has been fitted on all the available datasets, simply call the `test_models` function using the dataset you want to conduct the comparison on.
+```python
+test_models(
+    datasets={'co2_daily': 360}, 
+    periods=720, 
+    figsize=(15, 5),
+    n_boot=30
+)
+```
+The function `test_models` will fit Prophet on-the-go on the specified dataset while it will build a FalseProphet ex-novo and load the weights relative to the same dataset. The core arguments to this function are:
 
+* datasets: a dictionary with datasets names as keys and cutting points as values. The cutting points specify which portion of the dataset is used for producing out-of-sample estimates.
+* periods: an integer specifying the number of time-steps beyond the last entry of the dataset for which we want to produce an estimate (i.e. estimates for which we do not have a ground truth).
+* n_boot: an integer specifying the number of samples that we want to draw from the posterior. This can be a quite lengthy process as it effectively run the Keras `predict()` method `n_boot` times.
 # Performance Comparison
 Values before the vertical dotted line indicate out-of-sample estimates for which we have a ground truth while we do not possess a ground truth for values after the dotted line.
 Each model oprates on a rolling-prediction basis: given a sequence of timestaps and the ground truth at `t-1` the models will produce an estimate for time `t` which will then be used as an input for producing a prediction at time `t+1`. 
