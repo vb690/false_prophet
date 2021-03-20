@@ -1,3 +1,5 @@
+import os
+
 from tensorflow.keras.callbacks import EarlyStopping
 
 from sklearn.preprocessing import MinMaxScaler as mms
@@ -9,7 +11,7 @@ from modules.utils.general_utils import save_obj, load_obj
 
 ###############################################################################
 
-for data_source in ['female_birth', 'peyton_manning', 'co2_daily']:
+for data_source in os.listdir('data//arrays//'):
 
     splitted_arrays = load_obj(
         path=f'data//arrays//{data_source}'
