@@ -114,7 +114,7 @@ The function `test_models` will fit Prophet on-the-go on the specified dataset w
 
 * datasets: a dictionary with datasets names as keys and cutting points as values. The cutting points specify which portion of the dataset is used for producing out-of-sample estimates.
 * periods: an integer specifying the number of time-steps beyond the last entry of the dataset for which we want to produce an estimate (i.e. estimates for which we do not have a ground truth).
-* n_boot: an integer specifying the number of samples that we want to draw from the posterior. This can be a quite lengthy process as it effectively run the Keras `predict()` method `n_boot` times.
+* n_boot: an integer specifying the number of samples that we want to draw from the posterior. This can be a quite lengthy process as it effectively calls the Keras `predict()` method `n_boot` times.
 # Performance Comparison
 Values before the vertical dotted line indicate out-of-sample estimates for which we have a ground truth while we do not possess a ground truth for values after the dotted line.
 Each model oprates on a rolling-prediction basis: given a sequence of timestaps and the ground truth at `t-1` the models will produce an estimate for time `t` which will then be used as an input for producing a prediction at time `t+1`. 
